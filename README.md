@@ -91,6 +91,10 @@ npm install     → Installs all dependencies
 
 ---
 
+## DEPLOYMENT
+
+https://stegoshield.vercel.app/
+
 ## 🤝 Contribution
 
 Feel free to add new encoding/decoding methods or improve the UI.

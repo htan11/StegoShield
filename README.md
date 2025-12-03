@@ -93,7 +93,7 @@ npm install     → Installs all dependencies
 
 ## DEPLOYMENT
 
-https://stegoshield.vercel.app/
+https://stegosecure.vercel.app/
 
 ## 🤝 Contribution
 

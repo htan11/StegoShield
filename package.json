@@ -1,0 +1,8 @@
+{
+  "name": "stegosecure",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "mongodb": "^6.3.0"
+  }
+}

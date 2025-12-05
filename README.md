@@ -4,103 +4,130 @@ This project is a simple full‑stack steganography tool built with Node.js, Exp
 
 ---
 
-## 📁 Project Structure
+## How to Run the Project
 
-```
-stego-tool/
-│
-├── api/                # API-related scripts (if any)
-├── backend.js         # Backend logic for steganography
-├── database.js        # MongoDB connection setup
-├── frontend.js        # Frontend interaction logic
-├── server.js          # Main Express server file
-├── main.js            # Image encoding/decoding logic
-├── main-new.js        # Updated version of image logic
-├── index.html         # Frontend UI
-├── styles.css         # Styling for UI
-├── .env.local         # Environment variables (MongoDB URL, API keys, etc.)
-├── node_modules/      # Dependencies
-├── package.json       # Dependencies and scripts
-└── package-lock.json
-```
+### 1. Install Dependencies
 
----
+Make sure you have Node.js 18+ installed.
 
-## 🚀 How to Run the Project
 
-### **1. Install Dependencies**
-Make sure you have Node.js installed.
+### 2. Set Up Environment Variables
 
-```
-npm install
-```
+Add the following environment variables (via Vercel dashboard or .env.local):
 
-### **2. Set Up Environment Variables**
-Inside `.env.local`, add your MongoDB connection string:
 
-```
-MONGO_URI=your_mongodb_url_here
-```
+### 3. Run Database Migrations
 
-### **3. Start the Server**
+Execute the SQL scripts in the `/scripts` folder to set up your database tables.
 
-```
-node server.js
-```
+### 4. Start the Development Server
+
 
 Server will start on:
-```
 http://localhost:3000
-```
+
 
 ---
 
-## 🧩 Features
+## Features
 
-- Hide secret text inside images  
-- Extract hidden text from images  
-- MongoDB used for storing logs or user data  
-- Simple clean UI built using HTML, CSS, JS  
-- Fully local processing for steganography logic  
-
----
-
-## 📦 Scripts From package.json
-
-```
-npm start       → Runs server.js
-npm install     → Installs all dependencies
-```
+- User Authentication (Login/Register with role-based access)
+- Admin Console with user approval system
+- End-to-End Encrypted Private Messaging
+- Steganography Encoding (hide messages in images)
+- Steganography Decoding (extract hidden messages)
+- AI-Powered Steganalysis Tool
+- Public Gallery for encoded images
+- Responsive mobile-first design
+- Glass morphism UI with dark theme
 
 ---
 
-## 🛠 Technologies Used
+## Database Schema
 
-- **Node.js**
-- **Express.js**
-- **MongoDB**
-- **Vanilla HTML/CSS/JS**
+### Users Table
+- id (UUID, Primary Key)
+- username (Unique)
+- password
+- role (user/admin)
+- isVerified (Boolean)
+- created_at
+
+### Private Messages Table
+- id (UUID, Primary Key)
+- chatId
+- text
+- sender
+- timestamp
+- type (text/image)
+- imageUrl
+- created_at
+
+### Gallery Table
+- id (UUID, Primary Key)
+- imageUrl
+- title
+- timestamp
+- created_at
+
+### Settings Table
+- id (UUID, Primary Key)
+- decodePassword
+- created_at
 
 ---
 
-## 📸 How Stego Logic Works
-
-- Image pixels are modified slightly to hide text (LSB steganography approach).
-- Hidden message can later be retrieved by reversing the process.
-- The project includes two versions of logic: `main.js` and `main-new.js`.
-
----
-
-## DEPLOYMENT
-
-https://stegosecure.vercel.app/
-
-## 🤝 Contribution
-
-Feel free to add new encoding/decoding methods or improve the UI.
+## Scripts From package.json
+npm run dev      → Starts development server
+npm run build    → Builds for production
+npm start        → Runs production build
+npm install      → Installs all dependencies
 
 ---
 
-## 🧑‍💻 Author Notes
+## Technologies Used
 
-This README is written in a natural human style and summarizes the actual contents of your uploaded project.
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+- **shadcn/ui** (Component library)
+- **Neon/Supabase** (PostgreSQL Database)
+- **Lucide React** (Icons)
+- **Vercel** (Deployment)
+
+---
+
+## How Steganography Works
+
+- Image pixels are modified using LSB (Least Significant Bit) technique to hide text
+- Hidden messages can be extracted by reversing the encoding process
+- AI steganalysis tool detects potential hidden content in images
+- Secure password protection for decoding operations
+
+---
+
+## Default Admin Credentials
+Username: admin
+Password: admin123
+
+
+---
+
+## Deployment
+
+Deploy to Vercel with one click or use the CLI:
+
+---
+
+## Contribution
+
+Feel free to add new encoding/decoding methods, improve the AI classifier, or enhance the UI.
+
+---
+
+## Author Notes
+
+This is a secure communication platform focused on privacy and steganography. Built with modern web technologies and best practices for security and performance.
+
+
